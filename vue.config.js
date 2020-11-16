@@ -2,7 +2,7 @@ module.exports = {
   "transpileDependencies": [
     "vuetify"
   ],
-  publicPath: process.env.NODE_ENV === 'production' ? '/www/dotmodus_assesment/dist/' : '/',
+  publicPath: process.env.NODE_ENV === 'production' ? '/dotmodus/' : '/',
   configureWebpack: {
     resolve: {
       extensions: ['.js', '.vue', '.json', '.scss', '.css']

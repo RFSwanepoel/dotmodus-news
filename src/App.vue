@@ -260,8 +260,8 @@ export default {
         self.isLoading = false;
         return
       }
-      
-      let url = `http://newsapi.org/v2/everything?${queryString}`;
+      const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+      let url = `${proxyUrl}http://newsapi.org/v2/everything?${queryString}`;
       let req = new Request(url);
 
       fetch(req)

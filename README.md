@@ -1,4 +1,4 @@
-# dotmodus_assesment
+# dotmodus-news
 
 ## Project setup
 ```
