@@ -55,6 +55,8 @@
                     ></v-text-field>
                   </template>
                   <v-date-picker
+                    :min="dateMinMax.min"
+                    :max="dateMinMax.max"
                     v-model="dateFrom"
                     reactive
                     event-color="primary"
@@ -89,6 +91,8 @@
                     ></v-text-field>
                   </template>
                   <v-date-picker
+                    :min="dateMinMax.min"
+                    :max="dateMinMax.max"
                     v-model="dateTo"
                     reactive
                     event-color="primary"
@@ -174,10 +178,19 @@ export default {
     dateMenuFrom: false,
     dateFrom: '',
     dateMenuTo: false,
-    dateTo: '',
-    
+    dateTo: ''
   }),
   computed: {
+    dateMinMax(){
+      if(this.searchResults.length > 0){
+        let dates = [...this.searchResults].map(o=> new Date(o.publishedAt));
+        let max = new Date(Math.max.apply(null,dates)).toISOString();
+        let min = new Date(Math.min.apply(null,dates)).toISOString();
+        return {min, max}
+      }
+      return false;
+      
+    },
     searchedAndFiltered(){
       let self = this;
       if(!self.dateFrom && !self.dateTo){
